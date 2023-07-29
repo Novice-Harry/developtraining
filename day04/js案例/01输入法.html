@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>输入法</title>
+	<style>
+		body,
+		p,
+		span,
+		ul,
+		li {
+			padding: 0;
+			margin: 0;
+		}
+
+		.box {
+			width: 300px;
+			margin: 10px auto;
+			display: flex;
+		}
+
+		.inputbox {
+			position: relative;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			width: 100%;
+			background-color: #ccc;
+			/* display: none; */
+		}
+
+		ul li {
+			text-align: center;
+		}
+
+		ul li:hover {
+			background-color: #0000ff;
+			color: white;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<div class="inputbox">
+			<button>输入法</button>
+			<ul>
+				<li>手写</li>
+				<li>拼音</li>
+				<li class="close">关闭</li>
+			</ul>
+		</div>
+		<p>当前输入法：<span class="txt"></span></p>
+	</div>
+	<script>
+		const btn = document.querySelector('button');
+		const ul = document.querySelector('ul');
+		const txt = document.querySelector('.txt');
+		btn.addEventListener('click', () => {
+			ul.style.display = 'block'
+		})
+		ul.addEventListener('click', function (e) {
+			if (e.target.className === 'close') {
+				closeFn()
+			}else {
+				txt.innerHTML = e.target.innerText
+				closeFn()
+			}
+		})
+		const closeFn = () => {
+			ul.style.display = 'none'
+		}
+	</script>
+</body>
+
+</html>

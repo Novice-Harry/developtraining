@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text">
+        <input type="text">
+        <button>传参</button>
+    </div>
+    <script>
+        const myAlert = (val1, val2) => {
+            alert(val1)
+            alert(val2)
+        };
+        const inps = document.querySelectorAll('input')
+        document.querySelector('button').addEventListener('click', () => { 
+            myAlert(inps[0].value, inps[1].value)
+            
+        })
+    </script>
+</body>
+
+</html>

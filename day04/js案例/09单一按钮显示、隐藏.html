@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            margin: 10px auto 0;
+            background-color: #e9edf2;
+            border: #a2a2a1 1px solid;
+        }
+
+        .btn {
+            width: 100%;
+            line-height: 32px;
+            background-color: #ced3d7;
+            font-size: 14px;
+            padding-left: 6px;
+            box-sizing: border-box;
+            border: #dddddb 1px solid;
+            cursor: pointer;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: none;
+        }
+
+        li {
+            line-height: 28px;
+            padding-left: 6px;
+            box-sizing: border-box;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        a {
+            color: #53656d;
+        }
+
+        li:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="btn">播放列表...</div>
+        <ul>
+            <li><a href="javascript:;">玩家之徒 - 蔡依林</a></li>
+            <li><a href="javascript:;">原谅我就是这样的女生 - 戴佩妮</a></li>
+            <li><a href="javascript:;">猜不透 - 丁当</a></li>
+            <li><a href="javascript:;">自导自演 - 周杰伦</a></li>
+            <li><a href="javascript:;">浪漫窝 - 弦子</a></li>
+            <li><a href="javascript:;">流年 - 王菲</a></li>
+        </ul>
+    </div>
+    <script>
+        let show = false;
+        const btn = document.querySelector('.btn')
+        const ul = document.querySelector('ul')
+        btn.onclick = function () {
+            if (show) {
+                ul.style.display = 'none'
+                show = false
+            } else {
+                ul.style.display = 'block'
+                show = true
+            }
+        }
+    </script>
+    <script>
+        const box = document.querySelector('.box');
+        box.onselectstart = function(e){
+            return false
+        }
+    </script>
+</body>
+
+</html>

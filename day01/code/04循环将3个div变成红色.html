@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .targetbox {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .target{
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button>变色</button>
+        <div class="targetbox">
+            <div class="target"></div>
+            <div class="target"></div>
+            <div class="target"></div>
+        </div>
+    </div>
+    <script>
+        const targets = document.querySelectorAll('.target');
+        document.querySelector('button').onclick = () => {
+            targets.forEach(item=>{
+                item.style.backgroundColor = 'yellow'
+            })
+        }
+    </script>
+</body>
+
+</html>
