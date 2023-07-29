@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 200px;
+            margin: 10px auto 0;
+            position: relative;
+            line-height: 20px;
+            height: 20px;
+        }
+
+        .tag {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            line-height: 20px;
+            font-size: 13px;
+            border: 1px solid #ee8585;
+            background-color: #ccc;
+            padding: 4px;
+            display: none; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="checkbox" name="" id="rememberPsd">
+        <label for="rememberPsd">两周内自动登录</label>
+        <div class="tag">
+            为了您的信息安全，请不要在网吧或公用电脑上使用此功能
+        </div>
+    </div>
+    <script>
+        const target = document.querySelector('.box');
+        const tag = document.querySelector('.tag');
+
+        target.onmouseover = () => { tag.style.display = 'block' }
+        target.onmouseleave = () => { tag.style.display = 'none' }
+    </script>
+</body>
+
+</html>

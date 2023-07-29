@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            cursor: move;
+            padding: 8px;
+            font-size: 14px;
+            background-color: #000;
+            border-style: solid;
+            border-color: black;
+            border-width: 10px;
+            color: white;
+        }
+
+        .deactive {
+            background-color: #000;
+            border-style: solid;
+            border-color: black;
+            border-width: 10px;
+            color: white;
+        }
+
+        .active {
+            background-color: #fff;
+            border-style: solid;
+            border-color: #f00;
+            border-width: 10px;
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        文字文字文字
+    </div>
+    <script>
+        const target = document.querySelector('.box');
+        target.addEventListener('mouseover', () => {
+            target.className = 'box active'
+        })
+        target.addEventListener('mouseout', () => {
+            target.className = 'box deactive'
+        })
+    </script>
+</body>
+
+</html>

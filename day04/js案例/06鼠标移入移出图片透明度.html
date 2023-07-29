@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标移入移出图片透明度</title>
+    <style>
+        .box {
+            width: 560px;
+            padding-left: 10px;
+            padding-top: 10px;
+            border: 1px solid red;
+            margin: 10px auto 0;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            float: left;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            opacity: .3;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+        <li>假装是图片</li>
+    </ul>
+    <script>
+        const lis = document.querySelectorAll('li')
+        lis.forEach(item => {
+            item.onmouseover = function () {
+                this.style.opacity = 1
+            }
+            item.onmouseout = function () {
+                this.style.opacity = .3
+            }
+        })
+    </script>
+</body>
+
+</html>

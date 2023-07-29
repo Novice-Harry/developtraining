@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1typeof查看数据类型</title>
+    <style>
+        pre{
+            width: 100%;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            background-color: #eee;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>
+&lt;script&gt;
+    alert(typeof 1234)      // 输出 number
+
+    alert(typeof 'abc')     // 输出 string
+
+    alert(typeof document)  // 输出 object
+&lt;/script&gt;
+    </pre>
+    <script>
+        alert(`typeof 1234 → ${typeof 1234}
+
+typeof 'abc' → ${typeof 'abc'}
+
+typeof document → ${typeof document}     
+        `)
+    </script>
+</body>
+
+</html>

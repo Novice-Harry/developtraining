@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 300px;
+            margin: 10px auto;
+            box-shadow: 0 0 5px #ccc;
+        }
+
+        .title {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .btnbox{
+            text-align: center;
+        }
+        .target,.target1{
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            margin: 10px auto 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3 class="title">原版</h3>
+        <div class="btnbox">
+            <button class="btn">变宽</button>
+            <button class="btn">变高</button>
+            <button class="btn">变色</button>
+            <button class="btn">隐藏</button>
+            <button class="btn">重置</button>
+        </div>
+        <div class="target"></div>
+    </div>
+    <div class="box">
+        <h3 class="title">魔改版</h3>
+        <div class="btnbox">
+            <button class="btn1" fn="changeWidth">变宽</button>
+            <button class="btn1" fn="changeHeight">变高</button>
+            <button class="btn1" fn="changeColor">随机色</button>
+            <button class="btn1" fn="hide">隐藏</button>
+            <button class="btn1" fn="reset">重置</button>
+        </div>
+        <div class="target1"></div>
+    </div>
+    <script>
+        const btns = document.querySelectorAll('.btn');
+        const target = document.querySelector('.target');
+        const style_keys = ['width','height','background-color','display','display'];
+        const style_values = ['200px','200px','red','none','block'];
+        btns.forEach((item,index)=>{
+            item.onclick = () => {
+                target.style[style_keys[index]] = style_values[index]
+            }
+        })
+    </script>
+    <script>
+        const btn1s = document.querySelectorAll('.btn1');
+        const target1 = document.querySelector('.target1');
+        const fnObj = {
+            changeWidth : (target)=>{
+                target.style.width = '200px'
+            },
+            changeHeight : (target)=>{
+                target.style.height = '200px'
+            },
+            changeColor : (target)=>{
+                target.style['background-color'] ='#'+ Math.random().toString(16).slice(2,8)
+            },
+            hide : (target)=>{
+                target.style.display = 'none'
+            },
+            reset : (target)=>{
+                target.style.display = 'block'
+            },
+        }
+        btn1s.forEach((item,index)=>{
+            item.onclick = () => {
+                fnObj[item.getAttribute('fn')](target1)
+            }
+        })
+    </script>
+</body>
+
+</html>

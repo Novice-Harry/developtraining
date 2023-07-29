@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        label {
+            display: inline-block;
+            width: 70px;
+        }
+
+        .box {
+            width: 500px;
+            margin: 10px auto 0;
+        }
+
+        .target {
+            width: 300px;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            margin-top: 10px;
+            margin-left: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>
+            <label for="inputKey">属性名：</label>
+            <input type="text" id="inputKey" value="background-color">
+        </p>
+        <p>
+            <label for="inputValue">属性值：</label>
+            <input type="text" id="inputValue" value="black">
+        </p>
+        <p>
+            <label></label>
+            <button class="confirm">确定</button>
+            <button class="reset">重置</button>
+        </p>
+        <div class="target">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, perferendis voluptas repellendus est
+            inventore et numquam ullam vel ut dolor omnis accusantium at, eum quisquam nisi. Totam eius saepe tempora!
+        </div>
+    </div>
+    <script>
+        const inputKey = document.querySelector('#inputKey');
+        const inputValue = document.querySelector('#inputValue');
+        const confirmbtn = document.querySelector('.confirm');
+        const resetbtn = document.querySelector('.reset');
+        const target = document.querySelector('.target');
+        confirmbtn.onclick = function () {
+            target.style[inputKey.value] = inputValue.value
+        }
+        resetbtn.onclick = function () {
+            target.style = {}
+        }
+
+    </script>
+</body>
+
+</html>

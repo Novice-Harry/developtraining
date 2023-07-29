@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        .tab {
+            display: flex;
+        }
+
+        .tab .btn {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .btnred {
+            background-color: red;
+        }
+
+        .btngreen {
+            background-color: green;
+        }
+
+        .btnpurple {
+            background-color: purple;
+        }
+
+        .btn-active {
+            border: 3px solid #ccc;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        ul li {
+            flex: 1;
+            border-width: 1px;
+            border-color: #000;
+            border-style: solid;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="tab">
+            <div class="btn btnred" theme="red"></div>
+            <div class="btn btngreen" theme="green"></div>
+            <div class="btn btnpurple" theme="purple"></div>
+        </div>
+        <ul>
+            <li>新闻</li>
+            <li>娱乐</li>
+            <li>体育</li>
+            <li>电影</li>
+            <li>音乐</li>
+            <li>旅游</li>
+        </ul>
+    </div>
+
+    <script>
+        const btns = document.querySelectorAll('.btn');
+        const body = document.querySelector('body');
+        const themeObj = {
+            red: { bg: 'red', c: '#000' },
+            green: { bg: 'green', c: 'red' },
+            purple: { bg: 'purple', c: 'white' }
+        };
+        function changeTheme(obj) { 
+            body.style.backgroundColor = obj.bg;
+            body.style.color = obj.c;
+        }
+        btns.forEach(item => {
+            item.onclick = () => {
+                btns.forEach(el => {
+                    el.classList.remove('btn-active')
+                })
+                item.classList.add('btn-active')
+                const theme = item.getAttribute('theme');
+                changeTheme(themeObj[theme]);
+            }
+        });
+    </script>
+</body>
+
+</html>

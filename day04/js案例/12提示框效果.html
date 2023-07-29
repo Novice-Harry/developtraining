@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12提示框效果</title>
+    <style>
+        .box {
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        .title {
+            font-weight: 600;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-bottom: 0;
+        }
+
+        li {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: #fff;
+            border: 2px solid #000;
+            display: none;
+        }
+
+        p {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="title">车标展示</div>
+        <ul>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+            <li>
+                <p>lambojini</p>
+                <p>兰博基尼</p>
+                <div class="img">假装是图片</div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        const lis = document.querySelectorAll('li');
+        const imgs = document.querySelectorAll('.img');
+        lis.forEach(item => {
+            item.onmouseover = function () {
+                imgs.forEach(v => { 
+                    v.style.display = 'none'
+                })
+                item.querySelector('.img').style.display = 'block'
+            }
+            item.onmouseout = function(){
+                imgs.forEach(v => { 
+                    v.style.display = 'none'
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

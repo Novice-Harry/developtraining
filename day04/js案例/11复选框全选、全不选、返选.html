@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11复选框全选、全不选、反选</title>
+    <style>
+        .box {
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            height: 300px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .top {
+            border-bottom: 1px solid #000;
+            line-height: 26px;
+        }
+
+        .op {
+            margin-left: 10px;
+            color: #0075ff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 26px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <input type="checkbox" id="all"><label for="all">全选</label>
+            <span class="op">反选</span>
+        </div>
+        <ul>
+            <li> <input type="checkbox" class="single" checked> 选项（一） </li>
+            <li> <input type="checkbox" class="single"> 选项（二） </li>
+            <li> <input type="checkbox" class="single"> 选项（三） </li>
+            <li> <input type="checkbox" class="single"> 选项（四） </li>
+            <li> <input type="checkbox" class="single"> 选项（五） </li>
+            <li> <input type="checkbox" class="single"> 选项（六） </li>
+            <li> <input type="checkbox" class="single"> 选项（七） </li>
+            <li> <input type="checkbox" class="single"> 选项（八） </li>
+            <li> <input type="checkbox" class="single"> 选项（九） </li>
+            <li> <input type="checkbox" class="single"> 选项（十） </li>
+        </ul>
+    </div>
+    <script>
+        const checkall = document.querySelector('#all');
+        const txt = document.querySelector('label');
+        const checksingles = document.querySelectorAll('.single');
+        function checkstatus() {
+            let checkednum = 0
+            checksingles.forEach(item => {
+                if (item.checked) {
+                    checkednum++
+                }
+            });
+            if (checkednum === checksingles.length) {
+                checkall.checked = true
+                txt.innerText = '全不选'
+            }
+            else {
+                checkall.checked = false
+                txt.innerText = '全选'
+            }
+            return checkednum === checksingles.length
+        }
+        checkall.onclick = function () {
+            let flag = checkstatus()
+            checksingles.forEach(item => {
+                item.checked = !flag
+            })
+            checkstatus()
+        }
+        checksingles.forEach(item => {
+            item.onclick = function () {
+                checkstatus()
+            }
+        })
+        const op = document.querySelector('.op');
+        op.onclick = function () {
+            checksingles.forEach(item => {
+                let flag = item.checked
+                item.checked = !flag
+            })
+            checkstatus()
+        }
+    </script>
+</body>
+
+</html>
