@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock {
+            width: 300px;
+            margin: 10px auto;
+            background-color: #000;
+            display: flex;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        span {
+            display: inline-block;
+            color: white;
+            width: 40px;
+            text-align: center;
+        }
+
+        .clock div {
+            width: 100px;
+            display: flex;
+        }
+
+        input {
+            text-align: center;
+            width: 60px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hour">
+            <input type="text" id="hour" readonly><span>点</span>
+        </div>
+        <div class="minute">
+            <input type="text" id="minute" readonly><span>分</span>
+        </div>
+        <div class="second">
+            <input type="text" id="second" readonly><span>秒</span>
+        </div>
+    </div>
+</body>
+<script>
+    function getTime() {
+        var date = new Date();
+        var hour = date.getHours();
+        hour = hour < 10 ? '0' + hour: '' + hour;
+        var minute = date.getMinutes();
+        minute = minute < 10? '0' + minute: '' + minute;
+        var second = date.getSeconds();
+        second = second < 10? '0' + second: '' + second;
+        document.getElementById("hour").value = hour;
+        document.getElementById("minute").value = minute;
+        document.getElementById("second").value = second;
+    }
+    getTime()
+    setInterval(() => {
+        getTime()
+
+    }, 1000);
+</script>
+
+</html>

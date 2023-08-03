@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .timer {
+            width: 400px;
+            margin: 30px auto;
+            background-color: black;
+            padding: 100px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .timer:active {
+            transform: translate(0, 1px);
+            box-shadow: 0 0 15px #ca6565;
+        }
+
+        .content {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .content div {
+            width: 100px;
+            display: flex;
+        }
+
+        input {
+            width: 60px;
+            text-align: center;
+            outline: none;
+            cursor: pointer;
+        }
+
+        span {
+            display: inline-block;
+            width: 40px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer">
+        <div class="content">
+            <div class="min">
+                <input type="text" id="min" readonly><span>分</span>
+            </div>
+            <div class="sec">
+                <input type="text" id="sec" readonly><span>秒</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const a = get.by
+    const timerbtn = document.querySelector('.timer');
+    const min = document.querySelector('#min');
+    const sec = document.querySelector('#sec');
+    let timeout = 5;
+    let timer = null
+    timerbtn.addEventListener('click', () => {
+        if (!timer) {
+            timer = setInterval(() => {
+                timeout--
+                render()
+            }, 1000)
+        } else {
+            clearInterval(timer)
+            timer = null
+        }
+    }, false);
+    function render() {
+        let minval = parseInt(timeout / 60)
+        minval = minval < 10 ? '0' + minval : '' + minval
+        let secval = parseInt(timeout % 60)
+        secval = secval < 10 ? '0' + secval : '' + secval
+        min.value = minval
+        sec.value = secval
+        if (timeout <= 0) {
+            clearInterval(timer)
+        }
+    }
+    render()
+</script>
+
+</html>

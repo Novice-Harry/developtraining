@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>arguments应用-求出函数参数的总合</title>
+	<style>
+		pre{
+			border: 1px dotted #ccc;
+			padding: 10px;
+			margin: 0;
+			background-color: #f0f0f0;
+		}
+	</style>
+</head>
+
+<body>
+	<pre>
+&lt;script&gt;
+	function add(...args) {
+		alert(args.reduce((acc, cur) => acc + cur, 0))
+	}
+	add(1, 2, 3, 4, 5, 6, 78, 8)
+&lt;/script&gt;
+	</pre>
+</body>
+<script>
+	function add(...args) {
+		alert(args.reduce((acc, cur) => acc + cur, 0))
+	}
+	add(1, 2, 3, 4, 5, 6, 78, 8)
+</script>
+
+</html>
